@@ -1,5 +1,11 @@
 <?php
 
+<<<<<<< HEAD
+=======
+/**
+ * 
+ */
+>>>>>>> 63e5b25892f59a1a010792f168d386ed8cc46f4c
 class Model_Post extends Orm\Model
 {
 	/**
@@ -12,8 +18,11 @@ class Model_Post extends Orm\Model
 		'content',
 		'created_at',
 		'updated_at',
+<<<<<<< HEAD
 		'created_at',
 		'updated_at',
+=======
+>>>>>>> 63e5b25892f59a1a010792f168d386ed8cc46f4c
 	);
 
 	/**
@@ -25,11 +34,25 @@ class Model_Post extends Orm\Model
 			'mysql_timestamp' => true,
 		),
 		'Orm\Observer_UpdatedAt' => array(
+<<<<<<< HEAD
 			'events'          => array('before_save'),
+=======
+			'events'          => array('before_update'),
+>>>>>>> 63e5b25892f59a1a010792f168d386ed8cc46f4c
 			'mysql_timestamp' => true,
 		),
 	);
 
+<<<<<<< HEAD
+=======
+	/**
+	 * 
+	 */
+	public function url()
+	{
+		return "post/{$this->url}";
+	}
+>>>>>>> 63e5b25892f59a1a010792f168d386ed8cc46f4c
 
 	/**
 	 * 
@@ -46,4 +69,15 @@ class Model_Post extends Orm\Model
 	{
 		return $this->datetime()->format($format);
 	}
+<<<<<<< HEAD
+=======
+
+	/**
+	 * 
+	 */
+	public static function get_by_url($url)
+	{
+		return static::query()->where('url', $url)->get_one();
+	}
+>>>>>>> 63e5b25892f59a1a010792f168d386ed8cc46f4c
 }
