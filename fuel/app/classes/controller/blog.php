@@ -3,7 +3,7 @@
 /**
  * 
  */
-class Controller_Blog extends Controller_Template
+class Controller_Blog extends Controller_App
 {
 	/**
 	 * 
@@ -44,5 +44,30 @@ class Controller_Blog extends Controller_Template
 		
 		// send post to view
 		$this->template->body->post = $post;
+
+
 	}
+
+
+	/**
+	 * 
+	 */
+	public function post_view($url)
+	{
+		// get blog post
+		if (! $post = Model_Post::get_by_url($url))
+		{
+			throw new HttpNotFoundException; // 404
+		}
+
+		$comment = new Model_Comment;
+		$comment->post    = $post;
+		$comment->user_id = 1;
+		$comment->text    = Input::post('comment');
+		$comment->save();
+
+
+		Response::redirect($post->url());
+	}
+
 }

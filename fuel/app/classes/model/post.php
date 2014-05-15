@@ -20,7 +20,26 @@ class Model_Post extends Orm\Model
 	/**
 	 * 
 	 */
+	protected static $_has_many = array(
+		'comments' => array(
+			'key_from'       => 'id',
+			'model_to'       => 'Model_Comment',
+			'key_to'         => 'post_id',
+			'cascade_save'   => true,
+			'cascade_delete' => true,
+		)
+	);
+
+	/**
+	 * 
+	 */
 	protected static $_observers = array(
+		'Orm\\Observer_Slug' => array(
+			'events'    => array('before_insert', 'before_update'),
+			'source'    => 'title',     // property used to base the slug on, may also be array of properties
+			'property'  => 'url',       // property to set the slug on when empty
+			'separator' => '-',         // property to set the separator
+		),
 		'Orm\Observer_CreatedAt' => array(
 			'events'          => array('before_insert'),
 			'mysql_timestamp' => true,
