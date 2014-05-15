@@ -271,10 +271,7 @@ return array(
 		 * );
 		 */
 		'packages'  => array(
-<<<<<<< HEAD
-=======
 			'auth',
->>>>>>> 63e5b25892f59a1a010792f168d386ed8cc46f4c
 			'orm',
 		),
 

@@ -69,9 +69,4 @@ class Controller_Blog extends Controller_App
 
 		Response::redirect($post->url());
 	}
-<<<<<<< HEAD
-
-=======
->>>>>>> 63e5b25892f59a1a010792f168d386ed8cc46f4c
->>>>>>> 02d03d1c945fbb4c1ac73da1982a94628e786a2e
 }
