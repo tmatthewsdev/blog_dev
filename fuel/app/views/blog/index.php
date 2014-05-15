@@ -1,4 +1,4 @@
-	
+
 	<h1>blog/index</h1>
 	<hr>
 
@@ -11,5 +11,3 @@
 	<hr>
 
 	<?php endforeach; ?>
-
-	
